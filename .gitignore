@@ -3,3 +3,7 @@ node_modules
 
 ## Public Bundle ##
 src/client/public
+
+## Mac OS ##
+.DS_Store
+
