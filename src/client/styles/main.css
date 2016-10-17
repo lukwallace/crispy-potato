@@ -84,13 +84,7 @@ h1 {
   padding-right: 15px;
 }*/
 
-.title { 
-  box-sizing: border-box;
-}
-
-.rating {
-  float: right;
-}
+/* Image List */
 
 .tableHead {
   font-size: 200%;
@@ -101,23 +95,27 @@ th, td {
   text-align: center;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  width: auto;
-}
-
-ul {
-  list-style-type: none;
-  padding-left: 0px;
-}
-
 td:hover {
   cursor: pointer;
   background-color: #5472a3;
   color: white;
 }
 
+/* Frame */
+
+.rating {
+  float: right;
+}
+
+.dropdown-menu {
+  min-width: 100px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  width: auto;
+}
 
 
 
