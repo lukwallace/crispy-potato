@@ -1,4 +1,5 @@
 import React from 'react'
+import update from 'react-addons-update'
 import Frame from './Frame.jsx'
 import ImageList from './ImageList.jsx'
 
@@ -14,13 +15,27 @@ class App extends React.Component {
       currentFrame: null
     }; 
     this.state.currentFrame = this.state.data[0];
+    this.state.currentIndex = 0;
     //Thoughts -- how to use nodefs to readdir for
     //the images you want displayed and have the app render
     //them dynamically. Server-side thing right? 
   }
 
-  changeFrame (newFrame) {
-    this.setState({currentFrame: newFrame}); 
+  changeFrame (newFrame, index) {
+    this.setState({
+      currentFrame: newFrame,
+      currentIndex: index
+    }); 
+  }
+
+  changeRate (rate) {
+    let newItem = update(this.state.data[this.state.currentIndex], {rating: {$set: rate}});
+    let newData = update(this.state.data, {$splice: [[this.state.currentIndex, 1, newItem]]});
+    console.log(newData);
+    this.setState({
+      data: newData,
+      currentFrame: newData[this.state.currentIndex]
+    });
   }
 
   render() {
@@ -32,7 +47,7 @@ class App extends React.Component {
           <ImageList images={this.state.data} clickFn={this.changeFrame.bind(this)}/>
         </div>
         <div className='col-xs-9'>
-          <Frame image={this.state.currentFrame}/>
+          <Frame image={this.state.currentFrame} changeRate={this.changeRate.bind(this)}/>
         </div>
       </div>
       </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-
+import FrameInfo from './FrameInfo.jsx'
 // class Frame extends React.Component {
 //   render () {
 //     return (<div>Frame here </div>);
@@ -8,9 +8,10 @@ import React from 'react'
 
 
 let ASSET_DIR = './assets/';
-let Frame = ({image}) => (
+let Frame = ({image, changeRate}) => (
   <div>
-    <h2>{image.title} <span className='rating'> Rating: {image.rating} </span> </h2>
+    {console.log('Rendering', image)}
+    <FrameInfo image={image} changeRate={changeRate}/>
     <img src={ASSET_DIR + image.src} alt="Error loading image" />
   </div>
 );
