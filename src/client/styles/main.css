@@ -92,12 +92,12 @@ h1 {
   float: right;
 }
 
-.listHead {
+.tableHead {
   font-size: 200%;
   border-top: none;
 }
 
-.listHead, li {
+th, td {
   text-align: center;
 }
 
@@ -112,7 +112,7 @@ ul {
   padding-left: 0px;
 }
 
-li:hover {
+td:hover {
   cursor: pointer;
   background-color: #5472a3;
   color: white;

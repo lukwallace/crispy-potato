@@ -11,14 +11,18 @@ import React from 'react'
 
 //Assuming babel transpiles this correctly because of "(props)"
 let ImageList = ({images, clickFn}) => (
-  <ul> 
-    <h2 className='listHead'> Images </h2>
+  <table> 
+    <tr>
+      <th className='tableHead'><h2> Images </h2></th>
+    </tr>
     {images.map(function(image) {
       return (
-        <li onClick={()=>{clickFn(image)}} key={image.id}>{image.title}</li>
+        <tr>
+          <td onClick={()=>{clickFn(image)}} key={image.id}>{image.title}</td>
+        </tr>
       );
     })}
-  </ul>
+  </table>
 );
 
 
